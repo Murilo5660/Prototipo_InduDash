@@ -27,24 +27,33 @@ menuBar.addEventListener('click', function () {
 
 
 const searchButton = document.querySelector('#content nav form .form-input button');
-const searchButtonIcon = document.querySelector('#content nav form .form-input button');
+const searchButtonIcon = document.querySelector('#content nav form .form-input button i');
 const searchForm = document.querySelector('#content nav form');
 
 searchButton.addEventListener('click', function (e) {
     if(window.innerWidth < 576) {
         e.preventDefault();
-        searchForm.classList.toggle('show');
-        if(searchForm.classList.toggle('show')) {
+
+        const isOpen = searchForm.classList.toggle('show');
+
+        if(isOpen) {
             searchButtonIcon.classList.replace('bx-search','bx-x');
         } else {
-            searchButtonIcon.classList.replace('bx-x','bx-search')
+            searchButtonIcon.classList.replace('bx-x','bx-search');
         }
     }
-})
+});
 
-if(window.innerWidth < 768) {
-    barra_lateral.classList.add('hide');
-} else if(window.innerWidth < 576) {
-    searchButtonIcon.classList.replace('bx-x','bx-search')
-    searchForm.classList.remove('show');
+window.addEventListener('resize', function () {
+    if(window.innerWidth < 768) {
+        barra_lateral.classList.add('hide');
+    } else {
+        barra_lateral.classList.remove('hide');
+    }
+});
+
+if(menuBar) {
+    menuBar.addEventListener('click', function () {
+        barra_lateral.classList.toggle('hide');
+    });
 }
