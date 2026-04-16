@@ -71,6 +71,6 @@ class Maquinas_industria():
         return (
             f"{self.nome_maquina} foi desligada.\n"
             f"Tempo ligada: {tempo_horas} h\n"
-            f"Consumo: {consumo:.2f} kWh\n"
-            f"Custo: R$ {custo:.4f}"
+            f"Consumo: {consumo} kWh\n"
+            f"Custo: R$ {custo}"
         )
